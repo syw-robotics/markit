@@ -1,0 +1,81 @@
+name: "Nord"
+description: "Nord极地配色，冷色调蓝灰"
+
+colors:
+  title: "#2e3440"
+  heading: "#5e81ac"
+  subheading: "#81a1c1"
+  text: "#3b4252"
+  code_bg: "#eceff4"
+  code_text: "#3b4252"
+  table_header: "#5e81ac"
+  table_header_text: "#eceff4"
+  table_row: "#e5e9f0"
+  table_border: "#d8dee9"
+  quote_bg: "#e5e9f0"
+  link: "#5e81ac"
+  topbar_bg: "linear-gradient(135deg, #2e3440 0%, #3b4252 100%)"
+  topbar_text: "#eceff4"
+
+dark_colors:
+  title: "#88c0d0"
+  heading: "#81a1c1"
+  subheading: "#a3be8c"
+  text: "#d8dee9"
+  code_bg: "#2e3440"
+  code_text: "#d8dee9"
+  table_header: "#3b4252"
+  table_header_text: "#eceff4"
+  table_row: "#2e3440"
+  table_border: "#4c566a"
+  bg: "#242933"
+  surface: "#2e3440"
+  topbar_bg: "linear-gradient(135deg, #242933 0%, #2e3440 100%)"
+  topbar_text: "#eceff4"
+
+fonts:
+  chinese:
+    - "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+  mono:
+    - "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+  default: "Helvetica"
+
+font_sizes:
+  title: 28
+  heading: 18
+  subheading: 14
+  normal: 11
+  code: 9
+  table_header: 12
+
+line_height:
+  title: 36
+  heading: 24
+  subheading: 18
+  normal: 14
+  code: 11
+
+spacing:
+  page:
+    top: 1.0
+    bottom: 1.0
+    left: 1.0
+    right: 1.0
+  title_after: 0.5
+  heading_before: 0.4
+  heading_after: 0.3
+  subheading_before: 0.3
+  subheading_after: 0.2
+  normal_after: 0.2
+  code_after: 0.3
+
+code_block:
+  indent: 0.5
+  padding: 0.2
+
+table:
+  col_widths: [2.5, 3.5]
+  border_width: 0.5
+
+page:
+  size: "A4"

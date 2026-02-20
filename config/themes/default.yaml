@@ -1,0 +1,82 @@
+name: "Default Blue"
+description: "默认蓝色主题"
+
+colors:
+  title: "#1a365d"
+  heading: "#2c5282"
+  subheading: "#2f855a"
+  text: "#1a202c"
+  code_bg: "#f7fafc"
+  code_text: "#1a202c"
+  table_header: "#2c5282"
+  table_header_text: "#ffffff"
+  table_row: "#ebf8ff"
+  table_border: "#a0aec0"
+  quote_bg: "#edf2f7"
+  link: "#3182ce"
+  topbar_bg: "linear-gradient(135deg, #1a365d 0%, #2c5282 100%)"
+  topbar_text: "#ffffff"
+
+dark_colors:
+  title: "#90cdf4"
+  heading: "#63b3ed"
+  subheading: "#68d391"
+  text: "#e2e8f0"
+  code_bg: "#2d3748"
+  code_text: "#e2e8f0"
+  table_header: "#2c5282"
+  table_header_text: "#e2e8f0"
+  table_row: "#1e3a5f"
+  table_border: "#4a5568"
+  bg: "#1a1a2e"
+  surface: "#1e2433"
+  topbar_bg: "linear-gradient(135deg, #1a365d 0%, #2c5282 100%)"
+  topbar_text: "#ffffff"
+
+fonts:
+  chinese:
+    - "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+    - "/usr/share/fonts/truetype/arphic/uming.ttc"
+  mono:
+    - "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+  default: "Helvetica"
+
+font_sizes:
+  title: 28
+  heading: 18
+  subheading: 14
+  normal: 11
+  code: 9
+  table_header: 12
+
+line_height:
+  title: 36
+  heading: 24
+  subheading: 18
+  normal: 14
+  code: 11
+
+spacing:
+  page:
+    top: 1.0
+    bottom: 1.0
+    left: 1.0
+    right: 1.0
+  title_after: 0.5
+  heading_before: 0.4
+  heading_after: 0.3
+  subheading_before: 0.3
+  subheading_after: 0.2
+  normal_after: 0.2
+  code_after: 0.3
+
+code_block:
+  indent: 0.5
+  padding: 0.2
+
+table:
+  col_widths: [2.5, 3.5]
+  border_width: 0.5
+
+page:
+  size: "A4"

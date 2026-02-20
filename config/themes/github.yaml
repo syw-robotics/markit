@@ -1,0 +1,81 @@
+name: "GitHub"
+description: "GitHub风格，简洁黑白"
+
+colors:
+  title: "#24292f"
+  heading: "#24292f"
+  subheading: "#57606a"
+  text: "#24292f"
+  code_bg: "#f6f8fa"
+  code_text: "#24292f"
+  table_header: "#f6f8fa"
+  table_header_text: "#24292f"
+  table_row: "#ffffff"
+  table_border: "#d0d7de"
+  quote_bg: "#f6f8fa"
+  link: "#0969da"
+  topbar_bg: "linear-gradient(135deg, #24292f 0%, #32383f 100%)"
+  topbar_text: "#ffffff"
+
+dark_colors:
+  title: "#79c0ff"
+  heading: "#79c0ff"
+  subheading: "#8b949e"
+  text: "#c9d1d9"
+  code_bg: "#161b22"
+  code_text: "#c9d1d9"
+  table_header: "#21262d"
+  table_header_text: "#c9d1d9"
+  table_row: "#0d1117"
+  table_border: "#30363d"
+  bg: "#0d1117"
+  surface: "#161b22"
+  topbar_bg: "linear-gradient(135deg, #161b22 0%, #21262d 100%)"
+  topbar_text: "#c9d1d9"
+
+fonts:
+  chinese:
+    - "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+  mono:
+    - "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+  default: "Helvetica"
+
+font_sizes:
+  title: 28
+  heading: 18
+  subheading: 14
+  normal: 11
+  code: 9
+  table_header: 11
+
+line_height:
+  title: 36
+  heading: 24
+  subheading: 18
+  normal: 14
+  code: 11
+
+spacing:
+  page:
+    top: 1.0
+    bottom: 1.0
+    left: 1.0
+    right: 1.0
+  title_after: 0.5
+  heading_before: 0.4
+  heading_after: 0.2
+  subheading_before: 0.3
+  subheading_after: 0.2
+  normal_after: 0.2
+  code_after: 0.3
+
+code_block:
+  indent: 0.5
+  padding: 0.2
+
+table:
+  col_widths: [2.5, 3.5]
+  border_width: 0.5
+
+page:
+  size: "A4"

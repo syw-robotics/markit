@@ -1,0 +1,62 @@
+# 主配置文件
+# 修改 theme 字段切换主题（对应 themes/ 目录下的文件名，不含 .yaml）
+# 可用主题: default, github, solarized, nord
+
+theme: default
+
+author: Author
+
+pdf:
+  margin_bottom: 2.0cm  # 底边距（含 footer 空间）
+
+# 字体大小配置（所有主题共用）
+font_sizes:
+  title: 28
+  heading: 18
+  subheading: 14
+  subsubheading: 12
+  normal: 11
+  code: 11
+  table_header: 12
+
+# 间距配置（所有主题共用）
+spacing:
+  title_after: 0.5
+  heading_before: 0.4
+  heading_after: 0.3
+  subheading_before: 0.3
+  subheading_after: 0.2
+  normal_after: 0.2
+  code_after: 0.3
+
+# 快捷键配置（设为 "" 可禁用某个快捷键）
+hotkeys:
+  export_pdf: p
+  toggle_dark: d
+  toggle_theme: c
+  toggle_topbar: b
+  toggle_auto_refresh: a
+  keybindings: k
+  toggle_lang: l
+  toggle_toc: t
+
+
+preview:
+  topbar_height: 40
+  topbar_visible: true
+  lang: en
+  theme: light
+  zoom: 1.25
+
+# 顶部栏按钮布局
+# 可用按钮 ID: dark, lang, auto_refresh, export_pdf, theme_switcher, toc
+buttons:
+  left:
+    - dark
+    # - lang
+    - theme_switcher
+    - keybindings
+    - toc
+  right:
+    - auto_refresh
+    - export_pdf

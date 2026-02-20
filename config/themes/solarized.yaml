@@ -1,0 +1,81 @@
+name: "Solarized"
+description: "Solarized经典配色，护眼暖色调"
+
+colors:
+  title: "#073642"
+  heading: "#268bd2"
+  subheading: "#2aa198"
+  text: "#657b83"
+  code_bg: "#fdf6e3"
+  code_text: "#586e75"
+  table_header: "#268bd2"
+  table_header_text: "#fdf6e3"
+  table_row: "#eee8d5"
+  table_border: "#93a1a1"
+  quote_bg: "#eee8d5"
+  link: "#268bd2"
+  topbar_bg: "linear-gradient(135deg, #073642 0%, #002b36 100%)"
+  topbar_text: "#93a1a1"
+
+dark_colors:
+  title: "#268bd2"
+  heading: "#2aa198"
+  subheading: "#859900"
+  text: "#839496"
+  code_bg: "#073642"
+  code_text: "#839496"
+  table_header: "#073642"
+  table_header_text: "#93a1a1"
+  table_row: "#002b36"
+  table_border: "#586e75"
+  bg: "#002b36"
+  surface: "#073642"
+  topbar_bg: "linear-gradient(135deg, #002b36 0%, #073642 100%)"
+  topbar_text: "#93a1a1"
+
+fonts:
+  chinese:
+    - "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
+  mono:
+    - "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+  default: "Helvetica"
+
+font_sizes:
+  title: 28
+  heading: 18
+  subheading: 14
+  normal: 11
+  code: 9
+  table_header: 12
+
+line_height:
+  title: 36
+  heading: 24
+  subheading: 18
+  normal: 14
+  code: 11
+
+spacing:
+  page:
+    top: 1.0
+    bottom: 1.0
+    left: 1.0
+    right: 1.0
+  title_after: 0.5
+  heading_before: 0.4
+  heading_after: 0.3
+  subheading_before: 0.3
+  subheading_after: 0.2
+  normal_after: 0.2
+  code_after: 0.3
+
+code_block:
+  indent: 0.5
+  padding: 0.2
+
+table:
+  col_widths: [2.5, 3.5]
+  border_width: 0.5
+
+page:
+  size: "A4"
