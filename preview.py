@@ -289,10 +289,6 @@ PREVIEW_TEMPLATE = r"""
         ::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #a1a1a1; }
 
-        body.dark {
-{dark_css_vars}
-        }
-
         body.dark main { background: var(--bg-color); }
         body.dark .preview-content { background: var(--surface-color); box-shadow: 0 0 12px rgba(0,0,0,0.4); color: var(--color-text); }
         body.dark .preview-content .code-block { background: var(--color-code-bg); }
@@ -442,10 +438,12 @@ PREVIEW_TEMPLATE = r"""
         const i18n = {
             zh: { autoOn: '自动刷新', autoOff: '✕ 已暂停', export: '导出 PDF', langBtn: '中/EN',
                   kb_title: '快捷键', kb_export: '导出 PDF', kb_dark: '切换暗色模式',
-                  kb_theme: '切换主题', kb_topbar: '显示/隐藏顶栏', kb_auto: '切换自动刷新', kb_lang: '切换语言', kb_toc: '目录' },
+                  kb_theme: '切换主题', kb_topbar: '显示/隐藏顶栏', kb_auto: '切换自动刷新', kb_lang: '切换语言', kb_toc: '目录',
+                  zoom_label: '缩放' },
             en: { autoOn: 'Auto Refresh', autoOff: '✕ Paused', export: 'Export PDF', langBtn: 'EN/中',
                   kb_title: 'Keybindings', kb_export: 'Export PDF', kb_dark: 'Toggle dark mode',
-                  kb_theme: 'Switch theme', kb_topbar: 'Toggle topbar', kb_auto: 'Toggle auto refresh', kb_lang: 'Toggle language', kb_toc: 'Table of contents' }
+                  kb_theme: 'Switch theme', kb_topbar: 'Toggle topbar', kb_auto: 'Toggle auto refresh', kb_lang: 'Toggle language', kb_toc: 'Table of contents',
+                  zoom_label: 'Zoom' }
         };
         function t(key) { return i18n[lang][key]; }
 
@@ -548,7 +546,7 @@ PREVIEW_TEMPLATE = r"""
         });
 
         let currentTheme = '{init_theme_name}';
-        let currentDarkVars = {};  // populated by selectTheme, used by toggleDark
+        let currentDarkVars = {dark_vars_json};  // populated by selectTheme, used by toggleDark
 
         function applyDarkVars(isDark) {
             const root = document.documentElement;
@@ -688,8 +686,8 @@ PREVIEW_TEMPLATE = r"""
         }, { passive: false });
         document.addEventListener('keydown', e => {
             if (!e.ctrlKey) return;
-            if (e.key === '=' || e.key === '+') { e.preventDefault(); contentZoom = Math.min(3, contentZoom + 0.1); applyZoom(); }
-            if (e.key === '-') { e.preventDefault(); contentZoom = Math.max(0.3, contentZoom - 0.1); applyZoom(); }
+            if (e.key === '=' || e.key === '+') { e.preventDefault(); contentZoom = Math.min(3, contentZoom + 0.1); applyZoom(); showToast(t('zoom_label'), Math.round(contentZoom * 100) + '%'); }
+            if (e.key === '-') { e.preventDefault(); contentZoom = Math.max(0.3, contentZoom - 0.1); applyZoom(); showToast(t('zoom_label'), Math.round(contentZoom * 100) + '%'); }
             if (e.key === '0') { e.preventDefault(); contentZoom = 1.0; applyZoom(); }
         });
 
@@ -752,7 +750,7 @@ PREVIEW_TEMPLATE = r"""
             toast.innerHTML = `<span class="toast-label">${label}</span>${msg}`;
             requestAnimationFrame(() => toast.classList.add('show'));
             clearTimeout(toastTimer);
-            toastTimer = setTimeout(() => { toast.classList.remove('show'); }, 5000);
+            toastTimer = setTimeout(() => { toast.classList.remove('show'); }, 1500);
         }
 
         function exportPDF() {
@@ -777,9 +775,9 @@ PREVIEW_TEMPLATE = r"""
             const ddOpen = dd && dd.classList.contains('open');
             const kbOpen = document.getElementById('kb-overlay').classList.contains('open');
 
-            // kb modal: k or Escape closes
+            // kb modal: k, ?, or Escape closes
             if (kbOpen) {
-                if (e.key === 'Escape' || (hotkeys.keybindings && k === hotkeys.keybindings)) toggleKbModal();
+                if (e.key === 'Escape' || e.key === '?' || (hotkeys.keybindings && k === hotkeys.keybindings)) toggleKbModal();
                 return;
             }
 
@@ -799,7 +797,7 @@ PREVIEW_TEMPLATE = r"""
             else if (hotkeys.toggle_topbar && k === hotkeys.toggle_topbar) toggleHeader();
             else if (hotkeys.toggle_auto_refresh && k === hotkeys.toggle_auto_refresh) toggleAutoRefresh();
             else if (hotkeys.toggle_lang && k === hotkeys.toggle_lang) toggleLang();
-            else if (hotkeys.keybindings && k === hotkeys.keybindings) toggleKbModal();
+            else if (e.key === '?' || (hotkeys.keybindings && k === hotkeys.keybindings)) toggleKbModal();
             else if (hotkeys.toggle_toc && k === hotkeys.toggle_toc) toggleToc();
         });
 
@@ -1267,6 +1265,7 @@ class PreviewHTTPRequestHandler(SimpleHTTPRequestHandler):
 
         root_vars = build_vars(css_vars)
         dark_css_vars = build_vars(dark_vars)
+        dark_vars_json = _json.dumps(dark_vars)
 
         hotkeys = self.theme.config.get('hotkeys', {})
         hotkeys_json = _json.dumps({
@@ -1286,6 +1285,7 @@ class PreviewHTTPRequestHandler(SimpleHTTPRequestHandler):
                 .replace('{md_filename}', md_filename)
                 .replace('{css_vars}', root_vars)
                 .replace('{dark_css_vars}', dark_css_vars)
+                .replace('{dark_vars_json}', dark_vars_json)
                 .replace('{topbar_height}', str(topbar_height))
                 .replace('{btn_height}', str(btn_height))
                 .replace('{init_lang}', init_lang)
